@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050511">
+  <meta name="description" content="SUBX — استوديو رقمي يحوّل الأفكار إلى تطبيقات ومواقع وتجارب تفاعلية. اكتشف عالمنا من داخل روبوت ذكي، قطعة بعد قطعة.">
+  <title>SUBX — من الروبوت إلى قلب الكود</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/experience.css">
+</head>
+<body>
+  <div class="scroll-line" aria-hidden="true"><span id="scroll-progress"></span></div>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a href="#home" class="brand" aria-label="SUBX الرئيسية"><span class="brand-mark" aria-hidden="true">&gt;_</span><span>sub<strong>x</strong></span></a>
+    <nav class="desktop-nav" aria-label="القائمة الرئيسية">
+      <a href="#home">البداية</a>
+      <a href="#about">من نحن</a>
+      <a href="#services">خدماتنا</a>
+      <a href="#projects">أعمالنا</a>
+    </nav>
+    <div class="header-actions">
+      <a class="nav-contact" href="#contact">ابدأ مشروعك <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="القائمة للجوال" hidden>
+      <a href="#home">البداية</a><a href="#about">من نحن</a><a href="#services">خدماتنا</a><a href="#projects">أعمالنا</a><a href="#contact">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- An actual scroll-controlled cinematic: the robot disassembles as each scroll step travels deeper. -->
+    <section class="subx-odyssey" id="home" aria-label="رحلة من الروبوت إلى قلب المعالج ثم الأكواد">
+      <div class="odyssey-stage" id="odyssey-stage">
+        <div class="stage-backdrop" aria-hidden="true">
+          <div class="nebula nebula-one"></div>
+          <div class="nebula nebula-two"></div>
+          <div class="stage-grid"></div>
+          <div class="stage-stars"></div>
+        </div>
+        <div class="halo-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="orbital-arc orbital-first" aria-hidden="true"></div>
+        <div class="orbital-arc orbital-second" aria-hidden="true"></div>
+
+        <!-- Self-contained vector model: always visible, no WebGL, 3D files, libraries or network required. -->
+        <div class="robot-rig" id="robot-rig" aria-label="روبوت SUBX آلي يتفكك بالتدريج عند التمرير">
+          <svg id="robot-svg" viewBox="0 0 600 760" role="img" aria-label="روبوت معدني بعينين مضيئتين وقطع ميكانيكية مفصّلة">
+            <defs>
+              <linearGradient id="metal" x1=".03" y1="0" x2=".92" y2="1"><stop stop-color="#ded8fc"/><stop offset=".22" stop-color="#817bb4"/><stop offset=".53" stop-color="#37365e"/><stop offset=".84" stop-color="#24263e"/><stop offset="1" stop-color="#0d1226"/></linearGradient>
+              <linearGradient id="edgeMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b7a7f8"/><stop offset=".35" stop-color="#50487a"/><stop offset=".7" stop-color="#15172b"/><stop offset="1" stop-color="#534a82"/></linearGradient>
+              <linearGradient id="visor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#224566"/><stop offset=".4" stop-color="#0d1c38"/><stop offset="1" stop-color="#070c1d"/></linearGradient>
+              <linearGradient id="electro" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e5faff"/><stop offset=".4" stop-color="#5de1ff"/><stop offset="1" stop-color="#55aafa"/></linearGradient>
+              <linearGradient id="armGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#aca8cf"/><stop offset=".38" stop-color="#626089"/><stop offset=".68" stop-color="#2c2c4e"/><stop offset="1" stop-color="#101326"/></linearGradient>
+              <linearGradient id="heart" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#baf9ff"/><stop offset=".3" stop-color="#62d5ff"/><stop offset=".68" stop-color="#a67aff"/><stop offset="1" stop-color="#6152ff"/></linearGradient>
+              <radialGradient id="glow"><stop stop-color="#8ad9ff" stop-opacity=".72"/><stop offset=".4" stop-color="#925cfd" stop-opacity=".25"/><stop offset="1" stop-color="#925cfd" stop-opacity="0"/></radialGradient>
+              <filter id="shadow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur in="SourceAlpha" stdDeviation="12" result="blur"/><feOffset dy="13" result="offset"/><feComponentTransfer><feFuncA type="linear" slope=".6"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <filter id="neon" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M0 9L9 0" stroke="#bab7e5" opacity=".07" stroke-width="1"/></pattern>
+            </defs>
+            <ellipse cx="301" cy="692" rx="170" ry="27" fill="#2a165f" opacity=".24" />
+            <g class="bot-piece" id="part-antenna" data-part="antenna">
+              <path d="M295 92V44" stroke="#8c8bb9" stroke-width="10" stroke-linecap="round"/><path d="M301 89V46" stroke="#d9d3ff" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="295" cy="37" r="18" fill="url(#metal)" stroke="#9a9ac6" stroke-width="4"/><circle cx="295" cy="37" r="8" fill="#76e9ff" filter="url(#neon)"/>
+              <path d="M279 62L268 82M312 62L324 82" stroke="#6b6293" stroke-width="5"/>
+            </g>
+            <g class="bot-piece" id="part-left-leg" data-part="leftLeg" filter="url(#shadow)">
+              <rect x="216" y="527" width="76" height="38" rx="17" fill="#171c36" stroke="#7d78aa" stroke-width="5" />
+              <path d="M209 552L287 551L283 654L266 674L224 666L208 642Z" fill="url(#armGradient)" stroke="#958dc3" stroke-width="5"/>
+              <path d="M222 568H274L270 625L251 643L227 620Z" fill="#191f3e" stroke="#6e6a9e" stroke-width="2"/>
+              <path d="M237 574V619M252 574V631M266 574V619" stroke="#72dfff" opacity=".3" stroke-width="4" />
+              <path d="M211 656L281 659L300 693L297 716L187 716L183 698Z" fill="url(#metal)" stroke="#9e91c4" stroke-width="5"/>
+              <path d="M191 696L286 695M200 707L281 707" stroke="#c5bef7" opacity=".45" stroke-width="2" />
+              <circle cx="249" cy="549" r="8" fill="#64dafa"/>
+            </g>
+            <g class="bot-piece" id="part-right-leg" data-part="rightLeg" filter="url(#shadow)">
+              <rect x="307" y="527" width="76" height="38" rx="17" fill="#171c36" stroke="#7d78aa" stroke-width="5" />
+              <path d="M309 551L387 552L388 642L372 666L331 674L315 654Z" fill="url(#armGradient)" stroke="#958dc3" stroke-width="5"/>
+              <path d="M322 568H374L371 620L351 643L329 626Z" fill="#191f3e" stroke="#6e6a9e" stroke-width="2"/>
+              <path d="M337 574V619M351 574V630M363 574V619" stroke="#72dfff" opacity=".3" stroke-width="4" />
+              <path d="M318 659L389 656L416 698L413 716L303 716L299 693Z" fill="url(#metal)" stroke="#9e91c4" stroke-width="5"/>
+              <path d="M313 695L408 696M320 707L401 707" stroke="#c5bef7" opacity=".45" stroke-width="2" />
+              <circle cx="350" cy="549" r="8" fill="#64dafa"/>
+            </g>
+            <g class="bot-piece" id="part-hip" data-part="hip">
+              <path d="M206 475Q205 462 225 458H376Q395 459 394 475L383 547Q300 568 215 547Z" fill="url(#metal)" stroke="#938bc0" stroke-width="6"/>
+              <path d="M235 503H365L357 536H243Z" fill="#11182d" stroke="#71749e" stroke-width="2"/>
+              <path d="M265 520H335" stroke="#65d8ff" stroke-width="5" filter="url(#neon)"/><path d="M237 486H363" stroke="#d5cafa" stroke-width="2" opacity=".5"/>
+              <circle cx="215" cy="520" r="18" fill="#252f4a" stroke="#7e7ea9" stroke-width="5"/><circle cx="386" cy="520" r="18" fill="#252f4a" stroke="#7e7ea9" stroke-width="5"/>
+            </g>
+            <g class="bot-piece" id="part-left-arm" data-part="leftArm" filter="url(#shadow)">
+              <circle cx="178" cy="307" r="39" fill="url(#edgeMetal)" stroke="#b0a6dd" stroke-width="6"/><circle cx="178" cy="307" r="21" fill="#171d37" stroke="#5be1fa" stroke-width="4"/>
+              <path d="M144 317L203 321L193 426L169 448L130 425L121 353Z" fill="url(#armGradient)" stroke="#948fbd" stroke-width="5"/>
+              <path d="M139 349L181 352L176 411L154 426L137 404Z" fill="#242843" stroke="#686394" stroke-width="3"/><path d="M143 375L171 375M145 389L170 390" stroke="#b3a8f9" opacity=".5" stroke-width="3"/>
+              <circle cx="166" cy="442" r="24" fill="#202846" stroke="#a595d3" stroke-width="5"/>
+              <path d="M145 459L186 462L190 519L178 535L134 529L125 514Z" fill="url(#metal)" stroke="#a8a1cb" stroke-width="5"/>
+              <path d="M137 506L180 510M148 476L179 479" stroke="#61dbff" opacity=".45" stroke-width="3"/>
+              <path d="M138 528L146 551M155 531L159 552M174 528L173 544" stroke="#7279a7" stroke-width="9" stroke-linecap="round"/>
+            </g>
+            <g class="bot-piece" id="part-right-arm" data-part="rightArm" filter="url(#shadow)">
+              <circle cx="422" cy="307" r="39" fill="url(#edgeMetal)" stroke="#b0a6dd" stroke-width="6"/><circle cx="422" cy="307" r="21" fill="#171d37" stroke="#5be1fa" stroke-width="4"/>
+              <path d="M397 321L456 317L478 353L469 425L430 448L407 426Z" fill="url(#armGradient)" stroke="#948fbd" stroke-width="5"/>
+              <path d="M419 352L461 349L464 404L447 426L425 411Z" fill="#242843" stroke="#686394" stroke-width="3"/><path d="M430 375L458 375M431 390L455 389" stroke="#b3a8f9" opacity=".5" stroke-width="3"/>
+              <circle cx="434" cy="442" r="24" fill="#202846" stroke="#a595d3" stroke-width="5"/>
+              <path d="M414 462L455 459L475 514L466 529L422 535L410 519Z" fill="url(#metal)" stroke="#a8a1cb" stroke-width="5"/>
+              <path d="M420 510L463 506M420 479L451 476" stroke="#61dbff" opacity=".45" stroke-width="3"/>
+              <path d="M426 528L427 544M445 531L441 552M462 528L454 551" stroke="#7279a7" stroke-width="9" stroke-linecap="round"/>
+            </g>
+            <!-- Exposed skeleton remains briefly while exterior panels detach. -->
+            <g class="bot-skeleton" id="bot-skeleton">
+              <rect x="233" y="270" width="133" height="235" rx="29" fill="#0c162e" stroke="#6c6e9d" stroke-width="8"/>
+              <path d="M249 289V474M351 289V474M250 310H352M250 450H352" stroke="#6b628f" opacity=".65" stroke-width="8"/>
+              <path d="M261 335H338V431H261Z" fill="#101e36" stroke="#62c7e3" stroke-width="3"/>
+              <path d="M272 344L286 357H319L329 344M272 423L286 408H319L329 423" fill="none" stroke="#51d4ff" opacity=".75" stroke-width="3"/>
+              <rect x="279" y="362" width="42" height="43" rx="7" fill="#171d39" stroke="#a68aff" stroke-width="4"/>
+              <path d="M288 383H312M299 371V395" stroke="#81eeff" stroke-width="4"/>
+            </g>
+            <g class="bot-piece" id="part-left-chest" data-part="leftChest" filter="url(#shadow)">
+              <path d="M207 279L285 267L299 296L296 466L257 488L208 467L193 350Z" fill="url(#metal)" stroke="#aca3d6" stroke-width="6"/>
+              <path d="M222 312L281 302L282 425L262 457L227 437Z" fill="#171a35" stroke="#6b638a" stroke-width="3"/>
+              <path d="M235 323V413M250 320V433M266 315V419" stroke="#4fa9dd" stroke-width="3" opacity=".5"/>
+              <path d="M214 284L277 274M207 354L216 427" stroke="#e1d8ff" stroke-width="3" opacity=".5"/>
+              <path d="M239 447L271 465" stroke="#8e79ef" stroke-width="4"/>
+            </g>
+            <g class="bot-piece" id="part-right-chest" data-part="rightChest" filter="url(#shadow)">
+              <path d="M315 267L393 279L407 350L392 467L343 488L304 466L301 296Z" fill="url(#metal)" stroke="#aca3d6" stroke-width="6"/>
+              <path d="M319 302L378 312L373 437L338 457L318 425Z" fill="#171a35" stroke="#6b638a" stroke-width="3"/>
+              <path d="M334 315V419M350 320V433M365 323V413" stroke="#4fa9dd" stroke-width="3" opacity=".5"/>
+              <path d="M323 274L386 284M384 427L393 354" stroke="#e1d8ff" stroke-width="3" opacity=".5"/>
+              <path d="M329 465L361 447" stroke="#8e79ef" stroke-width="4"/>
+            </g>
+            <g class="bot-piece" id="part-neck" data-part="neck">
+              <path d="M254 240L345 240L354 288L247 288Z" fill="url(#edgeMetal)" stroke="#9796b9" stroke-width="5"/>
+              <path d="M268 253V281M282 253V281M317 253V281M331 253V281" stroke="#64dfff" opacity=".4" stroke-width="5"/>
+            </g>
+            <g class="bot-piece" id="part-head" data-part="head" filter="url(#shadow)">
+              <path d="M207 90Q301 53 393 90L427 140L415 234L380 263H220L185 234L173 140Z" fill="url(#metal)" stroke="#c3b9ed" stroke-width="7"/>
+              <path d="M207 91Q300 67 393 91L412 121Q299 96 190 121Z" fill="#827bb3" opacity=".7"/>
+              <path d="M197 139Q301 111 403 139L389 216Q300 247 211 216Z" fill="url(#visor)" stroke="#7995ba" stroke-width="5"/>
+              <path d="M208 151Q299 125 392 151" fill="none" stroke="#78cbed" opacity=".42" stroke-width="3"/>
+              <g filter="url(#neon)"><path d="M223 169L280 168L269 190L226 190Z" fill="url(#electro)"/><path d="M320 168L377 169L374 190L331 190Z" fill="url(#electro)"/></g>
+              <path d="M268 211Q300 224 332 211" fill="none" stroke="#87eaff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+              <path d="M218 241L257 252M382 241L343 252" stroke="#dad3fc" stroke-width="4" opacity=".7"/>
+              <path d="M186 165L169 160L168 203L192 214M412 165L431 160L432 203L408 214" fill="url(#edgeMetal)" stroke="#aca5d1" stroke-width="5"/>
+              <circle cx="176" cy="187" r="8" fill="#75e5ff"/><circle cx="423" cy="187" r="8" fill="#75e5ff"/>
+              <path d="M250 103H351" stroke="#dfd6ff" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+              <path d="M212 133L233 128M386 133L365 128" stroke="#ece5ff" stroke-width="3" opacity=".7"/>
+              <path d="M236 260L363 260" stroke="#4e3e75" stroke-width="4"/>
+            </g>
+            <g class="bot-light" id="bot-light"><circle cx="300" cy="385" r="78" fill="url(#glow)" opacity=".6"/></g>
+          </svg>
+        </div>
+
+        <!-- The exposed processor and circuit traces zoom towards the visitor after disassembly. -->
+        <div class="processor-wrap" id="processor-wrap" aria-label="معالج إلكتروني تتكشف دوائره أثناء التمرير">
+          <svg viewBox="0 0 680 680" role="img" aria-label="لوحة دوائر ومعالج SUBX مضيء">
+            <defs>
+              <radialGradient id="pcbFill"><stop stop-color="#252252"/><stop offset=".75" stop-color="#111a31"/><stop offset="1" stop-color="#060b1b"/></radialGradient>
+              <linearGradient id="chipFill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#615b9e"/><stop offset=".32" stop-color="#282945"/><stop offset="1" stop-color="#080d22"/></linearGradient>
+              <linearGradient id="pcbTrace" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#67dfff"/><stop offset="1" stop-color="#ac66ff"/></linearGradient>
+              <filter id="pcbGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <pattern id="boardGrid" patternUnits="userSpaceOnUse" width="31" height="31"><path d="M31 0H0V31" stroke="#6bbaff" stroke-opacity=".07" stroke-width="1" fill="none"/></pattern>
+            </defs>
+            <rect x="68" y="68" width="544" height="544" rx="43" fill="url(#pcbFill)" stroke="#5c66a8" stroke-width="9" />
+            <rect x="86" y="86" width="508" height="508" rx="30" fill="url(#boardGrid)"/>
+            <g stroke="url(#pcbTrace)" stroke-width="5" fill="none" stroke-linecap="round" opacity=".76" filter="url(#pcbGlow)">
+              <path d="M140 174H235L283 221V285M140 255H200L252 307M140 391H225L258 354M140 492H209L289 409V393M540 174H445L397 221V285M540 255H480L428 307M540 391H455L422 354M540 492H471L391 409V393"/>
+              <path d="M175 130V202H258M281 128V205M406 128V205M504 130V205H424M175 548V477H258M281 552V475M406 552V475M504 548V477H424"/>
+              <path d="M112 335H250M568 335H432" stroke-width="3"/>
+            </g>
+            <g fill="#a2e9ff"><circle cx="140" cy="174" r="7"/><circle cx="140" cy="255" r="7"/><circle cx="140" cy="391" r="7"/><circle cx="140" cy="492" r="7"/><circle cx="540" cy="174" r="7"/><circle cx="540" cy="255" r="7"/><circle cx="540" cy="391" r="7"/><circle cx="540" cy="492" r="7"/></g>
+            <g fill="#7b77ad" stroke="#393b68" stroke-width="1"><rect x="197" y="116" width="58" height="25" rx="4"/><rect x="425" y="116" width="58" height="25" rx="4"/><rect x="197" y="539" width="58" height="25" rx="4"/><rect x="425" y="539" width="58" height="25" rx="4"/><rect x="90" y="292" width="45" height="87" rx="5"/><rect x="545" y="292" width="45" height="87" rx="5"/></g>
+            <rect x="242" y="242" width="196" height="196" rx="27" fill="#0f132b" stroke="#7988b5" stroke-width="10"/>
+            <g stroke="#b09bec" stroke-width="8" stroke-linecap="round"><path d="M266 234V212M300 234V212M334 234V212M368 234V212M402 234V212M266 446V468M300 446V468M334 446V468M368 446V468M402 446V468M234 266H212M234 300H212M234 334H212M234 368H212M234 402H212M446 266H468M446 300H468M446 334H468M446 368H468M446 402H468"/></g>
+            <rect x="262" y="262" width="156" height="156" rx="15" fill="url(#chipFill)" stroke="#7de7ff" stroke-width="4"/>
+            <rect x="280" y="280" width="120" height="120" rx="9" fill="none" stroke="#9a6bff" stroke-width="2" opacity=".9"/>
+            <g filter="url(#pcbGlow)"><path d="M312 324H366L348 342H330L349 358H313" stroke="#77e7ff" stroke-width="11" fill="none" stroke-linejoin="round" stroke-linecap="square"/></g>
+            <text x="340" y="386" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#b7e9ff" letter-spacing="4">SUBX / CORE</text>
+            <text x="340" y="490" text-anchor="middle" font-family="monospace" font-size="11" fill="#9389ca" letter-spacing="3">ENGINE 001 • SYSTEM ONLINE</text>
+            <circle cx="114" cy="114" r="11" fill="#080e22" stroke="#7287bd" stroke-width="5"/><circle cx="566" cy="114" r="11" fill="#080e22" stroke="#7287bd" stroke-width="5"/><circle cx="114" cy="566" r="11" fill="#080e22" stroke="#7287bd" stroke-width="5"/><circle cx="566" cy="566" r="11" fill="#080e22" stroke="#7287bd" stroke-width="5"/>
+          </svg>
+        </div>
+        <div class="processor-beam" id="processor-beam" aria-hidden="true"></div>
+        <div class="code-storm" id="code-storm" aria-hidden="true"></div>
+        <div class="code-tunnel" id="code-tunnel" aria-hidden="true"><span>{ }</span><span>01</span><span>&lt;/&gt;</span><span>∞</span><span>const</span><span>1010</span></div>
+        <div class="scanlines" aria-hidden="true"></div>
+
+        <div class="odyssey-top-label" aria-hidden="true"><span class="live-dot"></span> SUBX / EXPERIMENT 001 <span class="odyssey-top-line"></span><span id="sys-readout">ROBOT ONLINE</span></div>
+        <div class="odyssey-side-meter" aria-hidden="true"><b id="current-step">01</b><span>/ 04</span><div class="vertical-meter"><i id="vertical-meter-fill"></i></div><small>SCROLL SYNC</small></div>
+        <div class="odyssey-caption" id="stage-caption" aria-hidden="true">SUBX / SYNTHETIC SYSTEM / MODEL 001</div>
+        <div class="scene-copy scene-welcome" data-from="0" data-to=".235">
+          <p class="scene-kicker"><span></span> TECHNOLOGY HAS A SOUL / SUBX</p>
+          <h1>كل فكرة تبدأ<br> <em>بشرارة.</em></h1>
+          <p class="scene-desc">لكن الأشياء العظيمة تبدأ عندما تقترب من التفاصيل. انزل معنا، وادخل إلى ما وراء التصميم.</p>
+          <a href="#about" class="scene-action">اكتشف عالم SUBX <span>↗</span></a>
+        </div>
+        <div class="scene-copy scene-explode" data-from=".22" data-to=".52">
+          <p class="scene-kicker"><span></span> 02 / ENGINEERING THE IDEA</p>
+          <h2>كل قطعة<br><em>لها حكاية.</em></h2>
+          <p class="scene-desc">مع كل حركة منك، تنفصل طبقة. من الهيكل إلى الحساسات، تتكشف التفاصيل قطعةً بعد قطعة.</p>
+        </div>
+        <div class="scene-copy scene-core" data-from=".46" data-to=".77">
+          <p class="scene-kicker"><span></span> 03 / ENTER THE PROCESSOR</p>
+          <h2>هنا ينبض<br><em>قلب النظام.</em></h2>
+          <p class="scene-desc">وراء المظهر معالج ومنطق ودوائر. اقترب أكثر… أنت الآن تدخل إلى عقل الآلة.</p>
+        </div>
+        <div class="scene-copy scene-source" data-from=".76" data-to="1.01">
+          <p class="scene-kicker"><span></span> 04 / UNLOCK THE SOURCE</p>
+          <h2>ومن المعالج…<br><em>تولد الأكواد.</em></h2>
+          <p class="scene-desc">أوامر تتدفق، بيانات تتحرك، وأفكار تتحول إلى برمجيات. هذا عالم SUBX.</p>
+          <a href="#about" class="scene-action">تابع استكشاف الموقع <span>↗</span></a>
+        </div>
+        <div class="odyssey-bottom"><div class="odyssey-chapters" aria-hidden="true"><span class="is-on">الروبوت</span><span>التفكيك</span><span>المعالج</span><span>الأكواد</span></div><div class="odyssey-scroll-prompt" aria-hidden="true"><span>انزل لتتحكم في الحركة</span><span class="scroll-mouse"><i></i></span></div><a href="#about" class="odyssey-skip">تجاوز التجربة ↓</a></div>
+      </div>
+    </section>
+
+    <section class="reveal-section intro-section" id="about">
+      <div class="container intro-grid">
+        <div class="section-lead reveal"><div class="section-kicker"><span class="line-accent"></span> ABOUT THE STUDIO / من نحن</div><h2>نحوّل الأفكار<br>إلى <em>أدوات رقمية.</em></h2></div>
+        <div class="intro-description reveal"><p class="big-text">نحن <strong>SUBX</strong> — مساحة تجمع الخيال بالمنطق، والفكرة بالتنفيذ. نبني تجارب رقمية لا تكتفي بالشكل الجميل، بل تعمل بذكاء وتترك أثرًا.</p><p>نؤمن أن أفضل المنتجات لا تُبنى لتبدو معقّدة، بل لتجعل الحياة أبسط. نبدأ بالسؤال الصحيح، ونفكّر في المستخدم، ثم نصمّم ونبرمج ونختبر حتى تكتمل الصورة.</p><div class="stats"><div><b>01</b><span>فكرة واضحة</span></div><div><b>∞</b><span>إمكانيات للإبداع</span></div><div><b>100%</b><span>اهتمام بالتفاصيل</span></div></div></div>
+      </div>
+      <div class="marquee" aria-hidden="true"><div>DESIGN <i>✳</i> DEVELOP <i>✳</i> CREATE <i>✳</i> REIMAGINE <i>✳</i> DESIGN <i>✳</i> DEVELOP <i>✳</i> CREATE <i>✳</i> REIMAGINE <i>✳</i></div></div>
+    </section>
+
+    <section class="services-section container" id="services">
+      <div class="section-heading reveal"><div><div class="section-kicker"><span class="line-accent"></span> WHAT WE DO / خدماتنا</div><h2>كل فكرة تستحق<br><em>تنفيذًا يليق بها.</em></h2></div><p>تطوير مُتقن، تصميم واعٍ، وتجربة تتجاوز المتوقع.</p></div>
+      <div class="services-grid">
+        <article class="service-card reveal"><div class="service-number">01 / WEB EXPERIENCES</div><div class="service-glyph">⌘</div><h3>مواقع تفاعلية</h3><p>مواقع حديثة تشد الانتباه، سريعة الاستجابة، ومليئة بحركات مقصودة تمنح هويتك حضورها المختلف.</p><div class="service-tags"><span>Web Development</span><span>Motion Design</span><span>Responsive</span></div><div class="service-arrow">↗</div></article>
+        <article class="service-card reveal"><div class="service-number">02 / MOBILE APPLICATIONS</div><div class="service-glyph">◈</div><h3>تطبيقات ذكية</h3><p>من المشكلة اليومية إلى تطبيق عملي. نعتني بالواجهة والمنطق والأداء لنصنع أدوات تريد استخدامها كل يوم.</p><div class="service-tags"><span>Android</span><span>UI / UX</span><span>Jetpack Compose</span></div><div class="service-arrow">↗</div></article>
+        <article class="service-card reveal"><div class="service-number">03 / DIGITAL DESIGN</div><div class="service-glyph">✳</div><h3>هوية وتجربة</h3><p>تصميم مرئي متكامل، لغة واضحة، حركة مدروسة، وتفاصيل تجعل تجربة منتجك أكثر ترابطًا وثقة.</p><div class="service-tags"><span>Brand Identity</span><span>Product Design</span><span>Interaction</span></div><div class="service-arrow">↗</div></article>
+      </div>
+    </section>
+
+    <section class="process-section" id="process"><div class="container"><div class="section-heading reveal"><div><div class="section-kicker"><span class="line-accent"></span> HOW IT WORKS / أسلوبنا</div><h2>من أول شرارة<br><em>إلى منتج حقيقي.</em></h2></div><p>كل مرحلة مهمة، وكل تفصيلة لها سبب.</p></div><div class="process-grid"><div class="process-item reveal"><span>01</span><div class="process-symbol">✳</div><h3>نكتشف</h3><p>نفهم المشكلة، الجمهور، وما الذي سيصنع الفرق فعلًا.</p></div><div class="process-item reveal"><span>02</span><div class="process-symbol">◎</div><h3>نصمّم</h3><p>نبني خريطة التجربة ثم واجهة تشعرك بالوضوح.</p></div><div class="process-item reveal"><span>03</span><div class="process-symbol">&lt;/&gt;</div><h3>نبرمج</h3><p>نحوّل التصاميم إلى نظام متين ومتفاعل وقابل للتطوّر.</p></div><div class="process-item reveal"><span>04</span><div class="process-symbol">↗</div><h3>نطلق</h3><p>نختبر، نحسّن، وننقل الفكرة إلى أيدي مستخدميها.</p></div></div></div></section>
+
+    <section class="projects-section container" id="projects"><div class="section-heading reveal"><div><div class="section-kicker"><span class="line-accent"></span> SELECTED WORK / أعمالنا</div><h2>الأفكار تصبح<br><em>أشياء تستخدمها.</em></h2></div><p>المشروع ليس صورة جميلة فقط؛ هو تجربة كاملة.</p></div><a href="amwali.html" class="project-feature reveal"><div class="project-visual"><div class="project-orbit orbit-one"></div><div class="project-orbit orbit-two"></div><div class="project-monogram">أ<span>↗</span></div><div class="project-visual-label">AMWALI / PERSONAL FINANCE</div></div><div class="project-details"><span class="project-index">01 / FEATURED PROJECT</span><div class="project-diamond">◈</div><h3>أموالي <span>↗</span></h3><p>تطبيق شخصي لإدارة المال، تتبّع الدخل والمصروفات والحسابات، وتنظيم يومك المالي في تجربة عربية واضحة.</p><div class="project-tags"><span>Android Application</span><span>Personal Finance</span><span>Arabic UI</span></div><strong>استكشف تفاصيل التطبيق ↗</strong></div></a><div class="projects-note reveal">لدينا شغف بالمشاريع التي تبدأ بفكرة صغيرة… وتنتهي بأداة تصنع فارقًا.</div></section>
+
+    <section class="manifesto-section"><div class="container manifesto-inner reveal"><div class="section-kicker"><span class="line-accent"></span> SUBX PHILOSOPHY</div><p>لا نصنع شاشةً لتُشاهَد.<br><em>نصنع تجربةً لتُعاش.</em></p><span>LESS NOISE. MORE MEANING.</span></div><div class="manifesto-halo"></div></section>
+
+    <section class="contact-section container" id="contact"><div class="contact-grid"><div class="reveal"><div class="section-kicker"><span class="line-accent"></span> LET'S CREATE / تواصل معنا</div><h2>عندك فكرة؟<br><em>خلّنا نبنيها.</em></h2><p>سواء كان موقعًا، تطبيقًا، أو شيئًا لم يره أحد من قبل — كل مشروع مميز يبدأ برسالة.</p><a class="contact-email" href="mailto:maa321584@gmail.com">maa321584@gmail.com ↗</a></div><form class="contact-form reveal" id="contact-form"><label>الاسم<input name="name" placeholder="وش نناديك؟" autocomplete="name" maxlength="70" required></label><label>موضوع المشروع<input name="subject" placeholder="موقع، تطبيق، أو فكرة جديدة" maxlength="100" required></label><label>تفاصيل فكرتك<textarea name="message" rows="4" placeholder="احكِ لنا عن فكرتك، وش تحب تنجز؟" maxlength="2500" required></textarea></label><button class="form-submit" type="submit">جهّز رسالتك <span>↗</span></button><small>زر الإرسال يفتح تطبيق البريد برسالتك الجاهزة؛ لا يتم إرسالها تلقائيًا.</small></form></div></section>
+  </main>
+  <footer class="site-footer container"><div><a class="brand footer-brand" href="#home"><span class="brand-mark">&gt;_</span><span>sub<strong>x</strong></span></a><p>من الأفكار إلى أدوات رقمية.</p></div><span>© 2026 SUBX. جميع الحقوق محفوظة.</span><a href="#top" class="back-to-top">العودة للأعلى ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/experience.js" defer></script>
+</body>
+</html>
