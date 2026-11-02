@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="subx — بوابة المطور | تطبيقات وأدوات احترافية للمطورين" />
+  <meta name="theme-color" content="#8A2BE2" />
+  <title>subx >_ | بوابة المطور</title>
+
+  <!-- Favicon inline SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%238A2BE2'/%3E%3Ctext x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='monospace' font-size='24' font-weight='bold'%3E%3E_%3C/text%3E%3C/svg%3E" />
+
+  <!-- Arabic Font: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div id="cursor-outer" aria-hidden="true"></div>
+  <div id="cursor-inner" aria-hidden="true"></div>
+
+  <!-- Scroll progress bar (right side — RTL) -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- THREE.JS WebGL Canvas -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════════════════
+       APP WRAPPER
+  ════════════════════════════════════════════════════════ -->
+  <div id="app">
+
+    <!-- ── NAVBAR ─────────────────────────────────────────── -->
+    <nav class="navbar" role="navigation" aria-label="القائمة الرئيسية">
+      <a href="#" class="nav-logo" aria-label="subx الرئيسية">
+        <div class="logo-icon" aria-hidden="true">&gt;_</div>
+        <div class="logo-text">
+          <span class="logo-name">subx</span>
+          <span class="logo-tagline">developer portal</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#apps">التطبيقات</a></li>
+        <li><a href="#about">عن المطور</a></li>
+        <li><a href="#skills">المهارات</a></li>
+        <li><a href="#terminal-demo">الطرفية</a></li>
+        <li><a href="#contact" class="nav-cta">تواصل معي</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- ── HERO ───────────────────────────────────────────── -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <!-- Glow orbs -->
+      <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+      <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+
+      <!-- Live badge -->
+      <div class="hero-badge">
+        <span class="dot" aria-hidden="true"></span>
+        <span>متاح للمشاريع الجديدة</span>
+        <span aria-hidden="true">⚡</span>
+      </div>
+
+      <!-- Main title -->
+      <h1 class="hero-title" id="hero-title">
+        <span class="line1">subx &gt;_</span>
+        <span class="line2" aria-live="polite">مطور متكامل</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        بوابة تطوير البرمجيات والأدوات التقنية المتقدمة.
+        أبني تطبيقات عالية الأداء، أدوات مفتوحة المصدر،
+        وحلول رقمية مبتكرة تجمع بين الجماليات الاستثنائية والأداء الخارق.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#apps" class="btn btn-primary">
+          <span>استكشف التطبيقات</span>
+          <span aria-hidden="true">🚀</span>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <span>تواصل معي</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats" role="list">
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="50+">٠</span>
+          <span class="stat-label">مشروع مكتمل</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="30000">٠</span>
+          <span class="stat-label">تحميل كلي</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="5">٠</span>
+          <span class="stat-label">سنوات خبرة</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="100">٠</span>
+          <span class="stat-label">عميل راضٍ</span>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-mouse"><!-- mouse icon --></div>
+        <span>مرّر للأسفل</span>
+      </div>
+    </section>
+
+    <!-- ── APPS SHOWCASE ──────────────────────────────────── -->
+    <section id="apps" aria-labelledby="apps-title">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// التطبيقات والمشاريع</span>
+        <h2 class="section-title" id="apps-title">معرض التطبيقات</h2>
+        <p class="section-desc">
+          جميع التطبيقات تُحمَّل ديناميكياً من ملف <code>update/apps.json</code>.
+          أضف مشاريعك بتعديل الملف فقط.
+        </p>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <!-- Filter buttons (populated by JS) -->
+      <div class="apps-filter" id="filter-buttons" role="group" aria-label="تصفية التطبيقات">
+        <button class="filter-btn active" data-cat="الكل">الكل</button>
+      </div>
+
+      <!-- Apps Grid (populated by JS) -->
+      <div class="apps-grid" id="apps-grid" role="list" aria-label="قائمة التطبيقات">
+        <!-- Cards injected by main.js -->
+      </div>
+    </section>
+
+    <!-- ── ABOUT ──────────────────────────────────────────── -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// عن المطور</span>
+        <h2 class="section-title" id="about-title">من أنا؟</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="about-grid">
+        <!-- Visual -->
+        <div class="about-visual reveal" aria-hidden="true">
+          <div class="orbit-ring"></div>
+          <div class="orbit-ring"></div>
+          <div class="about-logo-3d">
+            <div class="logo-3d-inner">
+              <span class="logo-3d-text">&gt;_</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="about-content reveal reveal-delay-2">
+          <p>
+            مرحباً، أنا مطور برمجيات شغوف بكل ما هو تقني ومستقبلي.
+            أعمل على بناء تطبيقات وأدوات احترافية بأحدث التقنيات،
+            مع التركيز على تجربة المستخدم والأداء العالي.
+          </p>
+          <p>
+            تحت مسمى <strong style="color:var(--clr-accent)">subx</strong>،
+            أنشر مشاريعي المفتوحة المصدر وتطبيقاتي الاحترافية
+            لمساعدة المطورين والمهتمين بعالم التقنية.
+          </p>
+
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="feature-icon" aria-hidden="true">⚡</div>
+              <div class="feature-text">
+                <h4>أداء عالي</h4>
+                <p>تطبيقات مُحسَّنة لأقصى سرعة وكفاءة</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon" aria-hidden="true">🛡️</div>
+              <div class="feature-text">
+                <h4>أمان متقدم</h4>
+                <p>كود آمن ومحمي وفق أحدث معايير الأمن</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon" aria-hidden="true">🌐</div>
+              <div class="feature-text">
+                <h4>مفتوح المصدر</h4>
+                <p>مشاريع شفافة وقابلة للتطوير المجتمعي</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon" aria-hidden="true">🤖</div>
+              <div class="feature-text">
+                <h4>ذكاء اصطناعي</h4>
+                <p>توظيف أحدث نماذج AI لتعزيز الإنتاجية</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS / TECH STACK ────────────────────────────── -->
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// المهارات والتقنيات</span>
+        <h2 class="section-title" id="skills-title">مكدّس التقنيات</h2>
+        <p class="section-desc">التقنيات والأدوات التي أستخدمها يومياً</p>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="skills-grid" role="list">
+        <div class="skill-chip reveal" role="listitem">
+          <span class="icon" aria-hidden="true">🐍</span>
+          <span class="name">Python</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-1" role="listitem">
+          <span class="icon" aria-hidden="true">⚡</span>
+          <span class="name">JavaScript</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-2" role="listitem">
+          <span class="icon" aria-hidden="true">🦀</span>
+          <span class="name">Rust</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-3" role="listitem">
+          <span class="icon" aria-hidden="true">🐚</span>
+          <span class="name">Bash / Shell</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-1" role="listitem">
+          <span class="icon" aria-hidden="true">🐋</span>
+          <span class="name">Docker</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-2" role="listitem">
+          <span class="icon" aria-hidden="true">☁️</span>
+          <span class="name">Linux</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-3" role="listitem">
+          <span class="icon" aria-hidden="true">🔥</span>
+          <span class="name">Firebase</span>
+        </div>
+        <div class="skill-chip reveal" role="listitem">
+          <span class="icon" aria-hidden="true">🕸️</span>
+          <span class="name">Three.js</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-1" role="listitem">
+          <span class="icon" aria-hidden="true">🌊</span>
+          <span class="name">GSAP</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-2" role="listitem">
+          <span class="icon" aria-hidden="true">🤖</span>
+          <span class="name">AI / LLM</span>
+        </div>
+        <div class="skill-chip reveal reveal-delay-3" role="listitem">
+          <span class="icon" aria-hidden="true">📊</span>
+          <span class="name">Data Science</span>
+        </div>
+        <div class="skill-chip reveal" role="listitem">
+          <span class="icon" aria-hidden="true">🔐</span>
+          <span class="name">Cybersecurity</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TERMINAL DEMO ──────────────────────────────────── -->
+    <section id="terminal-demo" aria-labelledby="terminal-title">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// طرفية subx</span>
+        <h2 class="section-title" id="terminal-title">الطرفية التفاعلية</h2>
+        <p class="section-desc">شاهد نظام subx وهو يعمل في الوقت الفعلي</p>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="terminal-window reveal reveal-delay-2" role="region" aria-label="محاكي الطرفية">
+        <div class="terminal-titlebar" aria-hidden="true">
+          <div class="t-dot red"></div>
+          <div class="t-dot yellow"></div>
+          <div class="t-dot green"></div>
+          <div class="t-title">subx@dev — bash — 80×24</div>
+        </div>
+        <div class="terminal-body" id="terminal-body" aria-live="polite" aria-label="مخرجات الطرفية">
+          <!-- Typed by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ────────────────────────────────────────── -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// تواصل معي</span>
+        <h2 class="section-title" id="contact-title">هل لديك مشروع؟</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="contact-inner reveal reveal-delay-1">
+        <p style="color:var(--clr-muted);font-size:1.05rem;line-height:2;margin-bottom:0.5rem">
+          أنا دائماً مستعد لمناقشة أفكار جديدة وبناء شراكات مثمرة.
+          سواء كان لديك مشروع تقني أو مجرد استفسار،
+          تواصل معي عبر أي قناة تناسبك.
+        </p>
+
+        <div class="contact-links">
+          <a href="https://github.com/" class="contact-link" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://t.me/" class="contact-link" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.613c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.16 14.4l-2.96-.924c-.643-.205-.658-.643.136-.953l11.55-4.453c.536-.194 1.004.13.676.178z"/>
+            </svg>
+            Telegram
+          </a>
+          <a href="mailto:dev@subx.dev" class="contact-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            البريد الإلكتروني
+          </a>
+          <a href="https://twitter.com/" class="contact-link" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            X (Twitter)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────── -->
+    <footer class="footer" role="contentinfo">
+      <p class="footer-copy">
+        © ٢٠٢٦ <span>subx &gt;_</span> — صُنع بـ ❤️ و ☕ وكثير من الأسطر البرمجية
+      </p>
+      <ul class="footer-links" role="list">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#apps">التطبيقات</a></li>
+        <li><a href="#contact">التواصل</a></li>
+      </ul>
+    </footer>
+
+  </div><!-- /#app -->
+
+  <!-- Main JS (deferred) -->
+  <script src="main.js" defer></script>
+</body>
+</html>
