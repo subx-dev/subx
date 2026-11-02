@@ -1,60 +1,28 @@
+
 {
   "apps": [
     {
       "id": "amwali",
       "name": "أموالي",
       "latinName": "AMWALI",
-      "description": "مساحة ذكية لتنظيم الدخل والمصروفات، وإدارة الحسابات والمحافظ، ومتابعة أهدافك المالية من واجهة واحدة أنيقة.",
+      "description": "تطبيق ذكي لإدارة الأموال والمصروفات والدخل، وتنظيم الحسابات البنكية والمحافظ والديون، مع تقارير مالية شاملة ودعم العملات المتعددة.",
       "icon": "◈",
       "category": "android",
       "platform": "تطبيق أندرويد",
       "status": "قيد التطوير",
-      "tags": ["KOTLIN", "FINTECH", "ANDROID"],
+      "tags": [
+        "KOTLIN",
+        "FINTECH",
+        "ANDROID"
+      ],
       "accent": "#9c70ff",
       "featured": true,
-      "links": [{"label": "التحميل قريبًا", "url": ""}]
-    },
-    {
-      "id": "madar",
-      "name": "مدار",
-      "latinName": "MADAR",
-      "description": "واجهة ويب تفاعلية تستكشف كيف تتحوّل البيانات المعقدة إلى لوحات واضحة وسهلة القراءة.",
-      "icon": "◎",
-      "category": "web",
-      "platform": "تجربة ويب",
-      "status": "نموذج تجريبي",
-      "tags": ["DASHBOARD", "WEB", "INTERACTION"],
-      "accent": "#7d8bff",
-      "featured": false,
-      "links": [{"label": "العرض قريبًا", "url": ""}]
-    },
-    {
-      "id": "nabd",
-      "name": "نبض",
-      "latinName": "NABD",
-      "description": "مفهوم لتطبيق يساعدك على تنظيم يومك، وترتيب عاداتك، وتحويل الخطط الصغيرة إلى إنجازات مستمرة.",
-      "icon": "✳",
-      "category": "android",
-      "platform": "تطبيق جوال",
-      "status": "تصوّر أولي",
-      "tags": ["MOBILE", "PRODUCTIVITY", "UX"],
-      "accent": "#cf7bfa",
-      "featured": false,
-      "links": [{"label": "التفاصيل قريبًا", "url": ""}]
-    },
-    {
-      "id": "flow",
-      "name": "فلو",
-      "latinName": "FLOW",
-      "description": "أداة خفيفة لإنشاء مسارات العمل، وتبسيط المهام المتكررة، وربط الخطوات في مكان واحد.",
-      "icon": "⌘",
-      "category": "tools",
-      "platform": "أداة إنتاجية",
-      "status": "فكرة استعراضية",
-      "tags": ["WORKFLOW", "TOOLS", "DESIGN"],
-      "accent": "#7ee6d6",
-      "featured": false,
-      "links": [{"label": "التجربة قريبًا", "url": ""}]
+      "links": [
+        {
+          "label": " ترقبوا التحميل قريبًا",
+          "url": ""
+        }
+      ]
     }
   ]
 }
