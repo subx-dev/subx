@@ -8,7 +8,7 @@
 
   // Replace this placeholder with your real inbox before publishing.
   const SITE_CONFIG = Object.freeze({
-    email: 'your-email@example.com',
+    email: 'maa321584@gmail.com',
     projectFile: 'update/apps.json'
   });
 
